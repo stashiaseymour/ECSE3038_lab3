@@ -11,7 +11,7 @@ class Tank(BaseModel):
     lat: float
     long: float
 
-# Tank (PATCH) for optional fields
+# Tank model (PATCH) for optional fields
 class UpdateTank(BaseModel):
     location: Optional[str] = None
     lat: Optional[float] = None
@@ -44,7 +44,7 @@ def create_tank(tank: Tank):
     tanks.append(new_tank)
     return new_tank
 
-# PATCH update tank (now allows partial updates)
+# PATCH update tank 
 @app.patch("/tank/{id}")
 def update_tank(id: str, updated_tank: UpdateTank):
     for tank in tanks:
